@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Beadando</string>
+    <string name="add_your_name">Add your name</string>
+    <string name="helloT">Hello there!</string>
+    <string name="done">Done</string>
+    <string name="start">Start</string>
+</resources>
