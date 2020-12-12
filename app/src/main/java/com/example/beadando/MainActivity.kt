@@ -15,61 +15,6 @@ import androidx.navigation.ui.NavigationUI
 import com.example.beadando.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    /*private lateinit var binding: ActivityMainBinding
-    private val myAnswer: MyAnswer = MyAnswer("Hello there!")
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        //setContentView(R.layout.activity_main)                                        // E helyett a binding
-
-        binding.myAnswer = myAnswer
-
-        binding.doneButton.setOnClickListener { addName(it) }
-        //findViewById<Button>(R.id.done_button).setOnClickListener { addName(it) }   // Gombnyomásra hívja fv-t
-
-        binding.answerText.setOnClickListener { updateName(it) }
-        //findViewById<TextView>(R.id.answerText).setOnClickListener { updateName(it) }   // TextView-ra bökéssel visszajön az input
-    }
-
-    private fun addName(view: View) {
-        //val editText = findViewById<EditText>(R.id.nameEdit)
-        //val answerTextView = findViewById<TextView>(R.id.answerText)
-
-        //answerTextView.text = "General " + editText.text + "!"
-        //editText.visibility = View.GONE
-        //view.visibility = View.GONE
-        //answerTextView.visibility = View.VISIBLE
-        binding.apply {
-            //answerText.text = "General " + nameEdit.text.toString() + "!"
-            myAnswer?.answer = "General " + nameEdit.text.toString() + "!"
-            invalidateAll()
-            nameEdit.visibility = View.GONE
-            doneButton.visibility = View.GONE
-            answerText.visibility = View.VISIBLE
-        }
-
-
-        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager   // Billentyűzet eltüntetése
-        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
-    }
-
-
-    private fun updateName (view: View) {
-        val editText = findViewById<EditText>(R.id.nameEdit)
-        val doneButton = findViewById<Button>(R.id.done_button)
-
-        editText.visibility = View.VISIBLE
-        doneButton.visibility = View.VISIBLE
-        view.visibility = View.GONE
-
-        editText.requestFocus()                                                         // Billentyűzet megjelenítése
-        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.showSoftInput(editText, 0)
-    }*/
 
     private lateinit var drawerLayout: DrawerLayout
 
