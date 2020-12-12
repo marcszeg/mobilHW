@@ -4,4 +4,6 @@
     <string name="helloT">Hello there!</string>
     <string name="done">Done</string>
     <string name="start">Start</string>
+    <string name="creator">Developed by Marcell Szegedi</string>
+    <string name="developDate">2020</string>
 </resources>

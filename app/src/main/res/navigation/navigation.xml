@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/titleFragment" >
+
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.example.beadando.TitleFragment"
+        android:label="fragment_title"
+        tools:layout="@layout/fragment_title" >
+        <action
+            android:id="@+id/action_titleFragment_to_appMainFragment"
+            app:destination="@+id/appMainFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/appMainFragment"
+        android:name="com.example.beadando.AppMainFragment"
+        android:label="fragment_app_main"
+        tools:layout="@layout/fragment_app_main">
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.beadando.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+</navigation>
