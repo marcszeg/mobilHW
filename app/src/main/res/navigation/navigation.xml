@@ -11,8 +11,32 @@
         android:label="fragment_title"
         tools:layout="@layout/fragment_title" >
         <action
-            android:id="@+id/action_titleFragment_to_appMainFragment"
-            app:destination="@+id/appMainFragment" />
+            android:id="@+id/action_titleFragment_to_albumsFragment"
+            app:destination="@+id/albumsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/albumsFragment"
+        android:name="com.example.beadando.albums.AlbumsFragment"
+        android:label="fragment_albums"
+        tools:layout="@layout/fragment_albums" >
+
+        <action
+            android:id="@+id/action_albumsFragment_to_addAlbumFragment"
+            app:destination="@+id/addAlbumFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/addAlbumFragment"
+        android:name="com.example.beadando.addAlbum.AddAlbumFragment"
+        android:label="fragment_addAlbum"
+        tools:layout="@layout/fragment_add_album" >
+        <argument
+            android:name="addAlbumKey"
+            app:argType="long"/>
+        <action
+            android:id="@+id/action_addAlbumFragment_to_albumsFragment"
+            app:destination="@+id/albumsFragment" />
     </fragment>
 
     <fragment
