@@ -30,9 +30,6 @@
         android:name="com.example.beadando.addAlbum.AddAlbumFragment"
         android:label="fragment_addAlbum"
         tools:layout="@layout/fragment_add_album" >
-        <argument
-            android:name="addAlbumKey"
-            app:argType="long"/>
         <action
             android:id="@+id/action_addAlbumFragment_to_albumsFragment"
             app:destination="@+id/albumsFragment" />

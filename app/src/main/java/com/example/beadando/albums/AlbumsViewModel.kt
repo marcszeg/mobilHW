@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 class AlbumsViewModel (
         val database: AlbumsDatabaseDao,
         application: Application) : AndroidViewModel(application) {
+
     private var newAlbum = MutableLiveData<Albums>()
     private val albums = database.getAllAlbums()
 
@@ -18,45 +19,9 @@ class AlbumsViewModel (
     }
 
 
-    private val _navigateToAddAlbum = MutableLiveData<Albums>()
-    val navigateToAddAlbum: LiveData<Albums>
+    private val _navigateToAddAlbum = MutableLiveData<Boolean?>()
+    val navigateToAddAlbum: LiveData<Boolean?>
         get() = _navigateToAddAlbum
-
-    init {
-        initializeAlbum()
-    }
-
-    private fun initializeAlbum() {
-        viewModelScope.launch {
-            newAlbum.value = getAlbumFromDB()
-            //newAlbum.value = database.getNewAlbum()
-        }
-    }
-
-    private fun getAlbumFromDB(): Albums? {
-        var album = database.getNewAlbum()
-        return album
-    }
-
-    fun addANewAlbum() {
-        viewModelScope.launch {
-            val aNewAlbum = Albums()
-            insert(aNewAlbum)
-            newAlbum.value = getAlbumFromDB()
-
-            val aalbum = newAlbum.value ?: return@launch
-            update(aNewAlbum)
-            _navigateToAddAlbum.value = aalbum
-        }
-    }
-
-    private suspend fun insert(album: Albums) {
-        database.insert(album)
-    }
-
-    private suspend fun update(album: Albums) {
-        database.update(album)
-    }
 
     val clearButtonVisible = Transformations.map(albums) {
         it?.isNotEmpty()

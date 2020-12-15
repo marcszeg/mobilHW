@@ -15,11 +15,13 @@ import com.example.beadando.databinding.FragmentAlbumsBinding
 import com.google.android.material.snackbar.Snackbar
 
 class AlbumsFragment : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         val binding: FragmentAlbumsBinding = DataBindingUtil.inflate(
-                inflater, R.layout.fragment_albums, container, false)
+            inflater, R.layout.fragment_albums, container, false)
 
         val application = requireNotNull(this.activity).application
         val dataSource = AlbumDatabase.getInstance(application).albumsDatabaseDao
@@ -30,14 +32,15 @@ class AlbumsFragment : Fragment() {
         binding.setLifecycleOwner(this)
         binding.albumsViewModel = albumsViewModel
 
-        albumsViewModel.navigateToAddAlbum.observe(viewLifecycleOwner, Observer { album ->
-            album?.let {
+        albumsViewModel.navigateToAddAlbum.observe(viewLifecycleOwner, Observer {
+            if (it == true) {
                 this.findNavController()
                     .navigate(
-                        AlbumsFragmentDirections.actionAlbumsFragmentToAddAlbumFragment(album.id)
+                        AlbumsFragmentDirections.actionAlbumsFragmentToAddAlbumFragment()
                     )
             }
         })
+
         albumsViewModel.showSnackbarEvent.observe(viewLifecycleOwner, Observer {
             if (it == true) {
                 Snackbar.make(

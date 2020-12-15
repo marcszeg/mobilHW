@@ -40,12 +40,14 @@ class AddAlbumFragment : Fragment() {
             inflater, R.layout.fragment_add_album, container, false)
 
         val application = requireNotNull(this.activity).application
-        val arguments = AddAlbumFragmentArgs.fromBundle(requireArguments())
         val dataSource = AlbumDatabase.getInstance(application).albumsDatabaseDao
-        val viewModelFactory = AddAlbumViewModelFactory(arguments.addAlbumKey, dataSource)
+
+        val viewModelFactory = AddAlbumViewModelFactory(dataSource, application)
         val addAlbumViewModel = ViewModelProvider(this, viewModelFactory).get(AddAlbumViewModel::class.java)
 
+        binding.setLifecycleOwner(this)
         binding.addAlbumViewModel = addAlbumViewModel
+
         addAlbumViewModel.navigateToAlbums.observe(this, Observer {
             if (it == true){
                 this.findNavController().navigate(
@@ -54,8 +56,28 @@ class AddAlbumFragment : Fragment() {
                 addAlbumViewModel.doneNavigating()
             }
         })
+
         return binding.root
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*private fun addNewAlbum(view: View) {
         binding.apply {

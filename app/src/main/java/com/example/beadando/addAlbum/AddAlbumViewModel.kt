@@ -1,16 +1,15 @@
 package com.example.beadando.addAlbum
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import android.app.Application
+import androidx.lifecycle.*
+import com.example.beadando.database.Albums
 import com.example.beadando.database.AlbumsDatabaseDao
 import kotlinx.coroutines.launch
 
 class AddAlbumViewModel (
-    private val addAlbumKey: Long = 0L,
-    val database: AlbumsDatabaseDao
-) : ViewModel() {
+        val database: AlbumsDatabaseDao,
+        application: Application) : AndroidViewModel(application) {
+
     private val _navigateToAlbums = MutableLiveData<Boolean?>()
     val navigateToAlbums: LiveData<Boolean?>
         get() = _navigateToAlbums
@@ -21,7 +20,7 @@ class AddAlbumViewModel (
 
     fun addAlbum(title: String, artist: String, release: String) {
         viewModelScope.launch {
-            val album = database.get(addAlbumKey) ?:return@launch
+            val album = Albums()
             album.title = title
             album.artist = artist
             album.release = release
