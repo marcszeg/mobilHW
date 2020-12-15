@@ -22,4 +22,7 @@ interface AlbumsDatabaseDao {
 
     @Query ("select * from albums_table order by id desc")
     fun getAllAlbums(): LiveData<List<Albums>>
+
+    @Query ("select * from albums_table order by id desc limit 1")
+    fun getNewAlbum(): Albums?
 }

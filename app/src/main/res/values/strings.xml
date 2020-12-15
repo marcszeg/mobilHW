@@ -8,4 +8,6 @@
     <string name="developDate">2020</string>
     <string name="cleared_message">All data cleared</string>
     <string name="title">![CDATA[<h3>Your albums:</h3>]]</string>
+    <string name="add">Add album</string>
+    <string name="clear">Delete all albums</string>
 </resources>

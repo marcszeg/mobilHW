@@ -8,11 +8,10 @@ import androidx.room.PrimaryKey
 data class Albums(
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0L,
-
     @ColumnInfo(name = "album_title")
-    var title: String,
+    var title: String = "",
     @ColumnInfo(name = "artist_name")
-    var artist: String,
+    var artist: String = "",
     @ColumnInfo(name = "release_date")
-    var release: String
+    var release: String = ""
 )

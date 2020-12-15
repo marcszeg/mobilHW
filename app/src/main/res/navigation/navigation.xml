@@ -20,7 +20,6 @@
         android:name="com.example.beadando.albums.AlbumsFragment"
         android:label="fragment_albums"
         tools:layout="@layout/fragment_albums" >
-
         <action
             android:id="@+id/action_albumsFragment_to_addAlbumFragment"
             app:destination="@+id/addAlbumFragment"/>

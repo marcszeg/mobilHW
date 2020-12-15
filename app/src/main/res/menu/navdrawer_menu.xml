@@ -4,4 +4,10 @@
     <item
         android:id="@+id/aboutFragment"
         android:title="About" />
+    <item
+        android:id="@+id/albumsFragment"
+        android:title="My albums" />
+    <item
+        android:id="@+id/addAlbumFragment"
+        android:title="Add an album" />
 </menu>
