@@ -24,6 +24,8 @@ import androidx.room.RoomDatabase
 @Database(entities = [Albums::class], version = 1, exportSchema = false)
 abstract class AlbumDatabase : RoomDatabase() {
 
+    //abstract fun albumsDBDao(): AlbumsDatabaseDao
+
     abstract val albumsDatabaseDao: AlbumsDatabaseDao
 
     companion object {

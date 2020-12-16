@@ -13,6 +13,7 @@ import com.example.beadando.database.AlbumDatabase
 import androidx.lifecycle.Observer
 import com.example.beadando.databinding.FragmentAlbumsBinding
 import com.google.android.material.snackbar.Snackbar
+import timber.log.Timber
 
 class AlbumsFragment : Fragment() {
     override fun onCreateView(
@@ -32,11 +33,11 @@ class AlbumsFragment : Fragment() {
         binding.setLifecycleOwner(this)
         binding.albumsViewModel = albumsViewModel
 
-        albumsViewModel.navigateToAddAlbum.observe(viewLifecycleOwner, Observer {
+        albumsViewModel.navigateToAddNewAlbum.observe(viewLifecycleOwner, Observer {
             if (it == true) {
                 this.findNavController()
                     .navigate(
-                        AlbumsFragmentDirections.actionAlbumsFragmentToAddAlbumFragment()
+                        AlbumsFragmentDirections.actionAlbumsFragmentToAddNewAlbumFragment()
                     )
             }
         })

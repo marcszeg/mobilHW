@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.beadando.databinding.FragmentTitleBinding
+import timber.log.Timber
 
 class TitleFragment : Fragment() {
 
@@ -15,6 +16,7 @@ class TitleFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater, R.layout.fragment_title, container,false)
         binding.startButton.setOnClickListener {view: View ->
             view.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToAlbumsFragment())
+            Timber.i("From Title to Albums")
         }
         return binding.root
     }

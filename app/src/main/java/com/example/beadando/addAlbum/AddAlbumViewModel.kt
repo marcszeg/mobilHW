@@ -5,6 +5,7 @@ import androidx.lifecycle.*
 import com.example.beadando.database.Albums
 import com.example.beadando.database.AlbumsDatabaseDao
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class AddAlbumViewModel (
         val database: AlbumsDatabaseDao,
@@ -20,13 +21,25 @@ class AddAlbumViewModel (
 
     fun addAlbum(title: String, artist: String, release: String) {
         viewModelScope.launch {
-            val album = Albums()
-            album.title = title
-            album.artist = artist
-            album.release = release
-            database.update(album)
+            if (title != "" && artist != "" && release != "") {
+                val album = Albums()
+                database.insert(album)
+                Timber.i("New album initialized")
 
-            _navigateToAlbums.value = true
+                album.title = title
+                album.artist = artist
+                album.release = release
+                Timber.i("Got details")
+
+                database.update(album)
+                Timber.i("DB updated")
+
+                _navigateToAlbums.value = true
+            }
         }
+    }
+
+    fun cancelAddAlbum() {
+        _navigateToAlbums.value = true
     }
 }
