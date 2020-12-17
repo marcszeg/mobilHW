@@ -39,6 +39,10 @@ class AddNewAlbumFragment : Fragment() {
             insertAlbumToDatabase()
         }
 
+        view.cancel_button.setOnClickListener {
+            findNavController().navigate(R.id.action_addNewAlbumFragment_to_albumsFragment)
+        }
+
         return view
     }
 

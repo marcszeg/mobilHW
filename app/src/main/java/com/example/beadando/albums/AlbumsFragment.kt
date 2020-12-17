@@ -11,9 +11,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.beadando.R
 import com.example.beadando.database.AlbumDatabase
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.beadando.databinding.FragmentAlbumsBinding
 import com.google.android.material.snackbar.Snackbar
-import timber.log.Timber
 
 class AlbumsFragment : Fragment() {
     override fun onCreateView(
@@ -30,8 +30,28 @@ class AlbumsFragment : Fragment() {
         val viewModelFactory = AlbumsViewModelFactory(dataSource, application)
         val albumsViewModel = ViewModelProvider(this,viewModelFactory).get(AlbumsViewModel::class.java)
 
-        binding.setLifecycleOwner(this)
+
         binding.albumsViewModel = albumsViewModel
+
+        val adapter = AlbumAdapter(AlbumListener { id ->
+            albumsViewModel.onAlbumClicked(id)
+        })
+        binding.albumList.adapter = adapter //*************
+
+        albumsViewModel.albums.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                adapter.addHeaderAndSubmitList(it)
+            }
+        })
+
+        albumsViewModel.navigateToAlbumDetail.observe(viewLifecycleOwner, Observer { album ->
+            album?.let {
+                this.findNavController().navigate(AlbumsFragmentDirections.actionAlbumsFragmentToAlbumDetailFragment(album))
+                albumsViewModel.onAlbumDetailNavigated()
+            }
+        })
+
+        binding.setLifecycleOwner(this)
 
         albumsViewModel.navigateToAddNewAlbum.observe(viewLifecycleOwner, Observer {
             if (it == true) {
@@ -39,6 +59,7 @@ class AlbumsFragment : Fragment() {
                     .navigate(
                         AlbumsFragmentDirections.actionAlbumsFragmentToAddNewAlbumFragment()
                     )
+                albumsViewModel.doneNavigating()
             }
         })
 
@@ -52,6 +73,16 @@ class AlbumsFragment : Fragment() {
                 albumsViewModel.doneShowingSnackbar()
             }
         })
+
+        val manager = GridLayoutManager(activity, 1)
+        manager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int = when (position) {
+                0 -> 1
+                else -> 1
+            }
+        }
+        binding.albumList.layoutManager = manager
+
         return binding.root
     }
 }

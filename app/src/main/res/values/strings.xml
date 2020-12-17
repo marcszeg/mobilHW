@@ -11,4 +11,8 @@
     <string name="add">Add album</string>
     <string name="clear">Delete all albums</string>
     <string name="cancel">Cancel</string>
+    <string name="allAlbum">All albums:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="aboutText">This is an application, to catalog your music albums.</string>
+    <string name="back">Back</string>
 </resources>

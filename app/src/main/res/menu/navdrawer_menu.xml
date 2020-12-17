@@ -8,6 +8,6 @@
         android:id="@+id/albumsFragment"
         android:title="My albums" />
     <item
-        android:id="@+id/addAlbumFragment"
+        android:id="@+id/addNewAlbumFragment"
         android:title="Add an album" />
 </menu>

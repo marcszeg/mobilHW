@@ -25,4 +25,7 @@ interface AlbumsDatabaseDao {
 
     @Query ("select * from albums_table order by id desc limit 1")
     fun getNewAlbum(): Albums?
+
+    @Query ("select * from albums_table where id = :key")
+    fun getAlbumWithId(key: Long): LiveData<Albums>
 }

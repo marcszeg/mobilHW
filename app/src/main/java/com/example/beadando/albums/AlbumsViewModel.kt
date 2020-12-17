@@ -9,16 +9,29 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class AlbumsViewModel (
-        val database: AlbumsDatabaseDao,
-        application: Application) : AndroidViewModel(application) {
+        val dataSource: AlbumsDatabaseDao,
+        application: Application) : ViewModel() {
 
-    private var newAlbum = MutableLiveData<Albums>()
-    private val albums = database.getAllAlbums()
+    val database = dataSource
+
+    //private var newAlbum = MutableLiveData<Albums>()
+    val albums = database.getAllAlbums()
 
     val albumsString = Transformations.map(albums) { albums ->
         formatAlbums(albums, application.resources)
     }
 
+    private val _navigateToAlbumDetail = MutableLiveData<Long>()
+    val navigateToAlbumDetail: LiveData<Long>
+        get() = _navigateToAlbumDetail
+
+    fun onAlbumClicked(id: Long) {
+        _navigateToAlbumDetail.value = id
+    }
+
+    fun onAlbumDetailNavigated() {
+        _navigateToAlbumDetail.value = null
+    }
 
     private val _navigateToAddNewAlbum = MutableLiveData<Boolean?>()
     val navigateToAddNewAlbum: LiveData<Boolean?>
@@ -41,10 +54,14 @@ class AlbumsViewModel (
         _showSnackbarEvent.value = false
     }
 
+    fun doneNavigating() {
+        _navigateToAddNewAlbum.value = null
+    }
+
     fun onClear() {
         viewModelScope.launch {
             clear()
-            newAlbum.value = null
+            //newAlbum.value = null
         }
         _showSnackbarEvent.value = true
     }
