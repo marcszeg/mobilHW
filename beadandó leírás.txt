@@ -1,0 +1,90 @@
+
+https://developer.android.com/courses/kotlin-android-fundamentals/overview
+
+____________________________________________________________________________________________________
+
+Kedves Hallgatók!
+
+A beadandó projekttel kapcsolatos technológiai követelmények a következők:
+
+    Legalább egy xml-ben ConstraintLayout használata
+    Data binding
+    Fragment-ek használata (2-3 fragment)
+    SafeArgs plugin
+    ViewModel és ViewModelFactory használata
+    LiveData (backing propertyvel) és annak observere (xml vagy kotlin oldalon)
+    LiveData transformation
+    RoomDatabase használata (1-2 adatbázis táblával)
+    Coroutine-ok használata
+    RecyclerView használata
+    DiffUtil és recyclerView
+    ClickListener helyes használata a RecyclerView elemein
+    RecyclerView header készítése
+    Webszolgáltatásből érkező adat feldolgozása és megjelenítése egy recyclerView-ban
+
+Nem szabom meg senkinek, hogy milyen projektet csináljon, mindössze annyi az elvárásom, hogy a védendő programok legyenek egyediek 
+a hallgatók körében, ne mindenki ugyan azt a leltárprogramot adja be. Amint látjátok, a követelmények teljesen lefedik az órán tanultakat, 
+kivéve a constraint layout-ot, ahhoz majd küldök anyagot. Minden egyes technológiai követelmény 1 pontot ér. A projekteket érdemes egy-egy 
+témára felfűzni, például egy webes apiről elkérni egy listát, azt tárolni az adatbázisban, felolvasni recyclerview-ba, majd lehessen hozzáadni, 
+törölni a listából. Ehhez itt van egy pár példa api a teljesség igénye nélkül:
+
+    https://pokeapi.co/ ahol például https://pokeapi.co/api/v2/pokemon?limit=100&offset=200
+    https://develop.battle.net/documentation/world-of-warcraft/game-data-apis  (Ehhez szükséges battle.net account és authentikátor hozzá)
+    https://dog.ceo/dog-api/documentation/
+    https://thecatapi.com/
+    https://gorest.co.in/
+    https://jsonplaceholder.typicode.com/ 
+
+Nappali tagozatos hallgatóknak a védés az utolsó óránkon lesz, online formában. A hallgató megosztja a képernyőjét velem, 
+illetve bekapcsolja a webkameráját, bemutatja a program működését, végigmegyünk a követelményeken. Sikertelen védés esetén a vizsgaidőszak 
+első hetében az óra időpontjában lesz pót védés.
+
+Levelezős hallgatóknak a szorgalmi időszak végéig lehet beadni a projekteket. (Órán megbeszéljük a részleteket)
+
+Amennyiben kérdésetek lenne, keressetek nyugodtan.
+
+Jó munkát kívánok a projektekhez.
+
+
+
+____________________________________________________________________________________________________
+
+
+x  3  Legalább egy xml-ben ConstraintLayout használata
+x  2  Data binding
+x  4  Fragment-ek használata (2-3 fragment)
+x  4  SafeArgs plugin     ( https://developer.android.com/codelabs/kotlin-android-training-start-external-activity/index.html#2 )
+   6  ViewModel és ViewModelFactory használata
+   6  LiveData (backing propertyvel) és annak observere (xml vagy kotlin oldalon)
+      LiveData transformation
+x  7  RoomDatabase használata (1-2 adatbázis táblával)
+   7  Coroutine-ok használata
+   8  RecyclerView használata
+      DiffUtil és recyclerView
+   9  ClickListener helyes használata a RecyclerView elemein
+   9  RecyclerView header készítése
+  10  Webszolgáltatásből érkező adat feldolgozása és megjelenítése egy recyclerView-ban
+
+____________________________________________________________________________________________________
+
+ 2 Android Studio, Android alapok
+	   DiceRoller2
+	   HelloWord2
+ 3 Felhasználói felületek
+	   Rolam
+ 4 Fragmentek és navigáció
+	   AndroidTrivia
+ 5 Életciklusok és logolás
+	   DessertClicker
+ 6 ViewModel
+	   GuessTheWord
+ 7 Room database
+	   TrackMySleepQuality
+ 8 RecycleView alapism.
+	   RecycleViewFundamentals
+ 9 RecycleView clickListener és header
+	   RecycleViewClickHandler
+10 Kommunikáció a webbel
+	   DevBytes
+	   MarsRealEstate
+11 Webes képmegjelenítés, Workmanager
